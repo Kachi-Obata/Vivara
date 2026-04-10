@@ -26,7 +26,7 @@ export default function WelcomePage() {
         background: "#efe8d6",
         color: "#1a1d1f",
         display: "grid",
-        gridTemplateColumns: "minmax(0, 1.05fr) minmax(0, 1fr)",
+        gridTemplateColumns: "minmax(0, 1.15fr) minmax(0, 1fr)",
         opacity: fadingOut ? 0 : 1,
         transition: "opacity 400ms ease",
         overflow: "hidden",
@@ -52,12 +52,13 @@ export default function WelcomePage() {
         className="welcome-text-col"
         style={{
           position: "relative",
-          padding: "48px 64px",
+          padding: "48px 56px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           zIndex: 3,
           minWidth: 0,
+          overflow: "hidden",
         }}
       >
         {/* Top row: logo + metadata */}
@@ -129,9 +130,9 @@ export default function WelcomePage() {
               className="welcome-title"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(88px, 10.5vw, 168px)",
+                fontSize: "clamp(72px, 9vw, 152px)",
                 fontWeight: 500,
-                letterSpacing: "-0.05em",
+                letterSpacing: "-0.055em",
                 lineHeight: 0.88,
                 margin: 0,
                 color: "#141618",
@@ -143,7 +144,7 @@ export default function WelcomePage() {
               className="welcome-subtitle"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(46px, 5.6vw, 88px)",
+                fontSize: "clamp(42px, 5vw, 82px)",
                 fontWeight: 400,
                 letterSpacing: "-0.035em",
                 lineHeight: 0.95,
