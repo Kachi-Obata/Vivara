@@ -1,10 +1,10 @@
 {
-  "name": "Vivara MedSim",
+  "name": "Vivara — Clinical Simulation",
   "short_name": "Vivara",
-  "description": "AI-powered clinical simulation for medical trainees",
+  "description": "Clinical simulation and assessment for medical trainees.",
   "start_url": "/onboarding",
   "display": "standalone",
-  "background_color": "#0a0e1a",
-  "theme_color": "#06b6d4",
+  "background_color": "#08090a",
+  "theme_color": "#4cc9d5",
   "icons": []
 }
