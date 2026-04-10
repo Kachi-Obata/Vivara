@@ -1,98 +1,138 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
+import Logo from "./Logo";
 
-const NAV_ITEMS = [
-  { path: "/dashboard", label: "Home", icon: "🏠" },
-  { path: "/simulation", label: "Simulate", icon: "🎮" },
-  { path: "/team", label: "Team", icon: "👥" },
-  { path: "/onboarding", label: "Profile", icon: "⚙" },
+const NAV = [
+  { path: "/dashboard", label: "Dashboard" },
+  { path: "/simulation", label: "Simulation" },
+  { path: "/team", label: "Team" },
+  { path: "/onboarding", label: "Profile" },
 ];
 
 export default function Navigation() {
   const pathname = usePathname();
   const router = useRouter();
 
-  // Hide nav on the root redirect page
   if (pathname === "/") return null;
 
   return (
-    <nav
+    <header
       style={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: 64,
-        background: "rgba(10, 14, 26, 0.92)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        borderTop: "1px solid var(--border)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 0,
-        zIndex: 1000,
-        padding: "0 12px",
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        background: "var(--bg)",
+        borderBottom: "1px solid var(--border)",
       }}
     >
-      <div style={{ display: "flex", maxWidth: 400, width: "100%", justifyContent: "space-around" }}>
-        {NAV_ITEMS.map((item) => {
-          const active = pathname === item.path;
-          return (
-            <button
-              key={item.path}
-              onClick={() => router.push(item.path)}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 3,
-                padding: "8px 16px",
-                background: "transparent",
-                border: "none",
-                cursor: "pointer",
-                borderRadius: 10,
-                transition: "all 0.2s",
-              }}
-            >
-              <span
+      <div
+        style={{
+          maxWidth: "var(--max-w)",
+          margin: "0 auto",
+          padding: "0 24px",
+          height: 52,
+          display: "flex",
+          alignItems: "center",
+          gap: 28,
+        }}
+      >
+        <button
+          onClick={() => router.push("/dashboard")}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            padding: 0,
+          }}
+          aria-label="Vivara home"
+        >
+          <Logo size={22} />
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: 15,
+              fontWeight: 600,
+              color: "var(--text)",
+              letterSpacing: "-0.015em",
+            }}
+          >
+            Vivara
+          </span>
+        </button>
+
+        <nav style={{ display: "flex", alignItems: "center", gap: 2, flex: 1 }}>
+          {NAV.map((item) => {
+            const active = pathname === item.path;
+            return (
+              <button
+                key={item.path}
+                onClick={() => router.push(item.path)}
                 style={{
-                  fontSize: 20,
-                  filter: active ? "none" : "grayscale(0.6) opacity(0.5)",
-                  transition: "filter 0.2s",
+                  padding: "6px 10px",
+                  borderRadius: "var(--radius-sm)",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: active ? "var(--text)" : "var(--text-secondary)",
+                  transition: "color 120ms ease, background 120ms ease",
+                  position: "relative",
                 }}
-              >
-                {item.icon}
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 9,
-                  letterSpacing: 0.8,
-                  textTransform: "uppercase",
-                  color: active ? "var(--accent-teal)" : "var(--text-muted)",
-                  fontWeight: active ? 600 : 400,
-                  transition: "color 0.2s",
+                onMouseEnter={(e) => {
+                  if (!active) e.currentTarget.style.color = "var(--text)";
+                }}
+                onMouseLeave={(e) => {
+                  if (!active) e.currentTarget.style.color = "var(--text-secondary)";
                 }}
               >
                 {item.label}
-              </span>
-              {active && (
-                <div
-                  style={{
-                    width: 4,
-                    height: 4,
-                    borderRadius: "50%",
-                    background: "var(--accent-teal)",
-                    boxShadow: "0 0 6px var(--accent-teal)",
-                    marginTop: -1,
-                  }}
-                />
-              )}
-            </button>
-          );
-        })}
+                {active && (
+                  <span
+                    style={{
+                      position: "absolute",
+                      left: 10,
+                      right: 10,
+                      bottom: -15,
+                      height: 1,
+                      background: "var(--accent)",
+                    }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </nav>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 11,
+              color: "var(--text-muted)",
+              letterSpacing: "0.04em",
+            }}
+          >
+            v0.1 · preview
+          </span>
+          <div
+            style={{
+              width: 26,
+              height: 26,
+              borderRadius: "50%",
+              background: "var(--bg-elevated)",
+              border: "1px solid var(--border-strong)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "var(--font-display)",
+              fontSize: 11,
+              fontWeight: 600,
+              color: "var(--text-secondary)",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            AO
+          </div>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 }

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="v-cross" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5cd0dc"/>
+      <stop offset="55%" stop-color="#2e8896"/>
+      <stop offset="100%" stop-color="#1a4258"/>
+    </linearGradient>
+    <linearGradient id="v-net" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5ec5d0"/>
+      <stop offset="100%" stop-color="#2a5f7a"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#v-net)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="50,10 83,29 83,71 50,90 17,71 17,29"/>
+    <line x1="17" y1="29" x2="83" y2="71"/>
+    <line x1="83" y1="29" x2="17" y2="71"/>
+    <line x1="50" y1="10" x2="50" y2="90"/>
+  </g>
+  <g fill="url(#v-net)">
+    <circle cx="50" cy="10" r="5"/>
+    <circle cx="83" cy="29" r="5"/>
+    <circle cx="83" cy="71" r="5"/>
+    <circle cx="50" cy="90" r="5"/>
+    <circle cx="17" cy="71" r="5"/>
+    <circle cx="17" cy="29" r="5"/>
+  </g>
+  <g fill="url(#v-cross)">
+    <rect x="42" y="26" width="16" height="48" rx="2"/>
+    <rect x="26" y="42" width="48" height="16" rx="2"/>
+  </g>
+</svg>
