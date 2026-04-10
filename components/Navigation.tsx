@@ -30,10 +30,10 @@ export default function Navigation() {
           maxWidth: "var(--max-w)",
           margin: "0 auto",
           padding: "0 24px",
-          height: 52,
+          height: 68,
           display: "flex",
           alignItems: "center",
-          gap: 28,
+          gap: 32,
         }}
       >
         <button
@@ -41,23 +41,11 @@ export default function Navigation() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 10,
             padding: 0,
           }}
           aria-label="Vivara home"
         >
-          <Logo size={22} />
-          <span
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: 15,
-              fontWeight: 600,
-              color: "var(--text)",
-              letterSpacing: "-0.015em",
-            }}
-          >
-            Vivara
-          </span>
+          <Logo size={48} />
         </button>
 
         <nav style={{ display: "flex", alignItems: "center", gap: 2, flex: 1 }}>
