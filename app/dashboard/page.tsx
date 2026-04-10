@@ -82,6 +82,7 @@ export default function DashboardPage() {
 
   return (
     <div
+      className="page-shell"
       style={{
         maxWidth: "var(--max-w)",
         margin: "0 auto",
@@ -90,12 +91,13 @@ export default function DashboardPage() {
       }}
     >
       {/* Greeting row */}
-      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 56, flexWrap: "wrap", gap: 24 }}>
+      <div className="dashboard-greeting-row" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 56, flexWrap: "wrap", gap: 24 }}>
         <div>
           <div className="label" style={{ marginBottom: 12 }}>
             Good morning
           </div>
           <h1
+            className="dashboard-greeting-h1"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: 40,
@@ -108,6 +110,7 @@ export default function DashboardPage() {
             {USER.fullName}.
           </h1>
           <div
+            className="dashboard-greeting-meta"
             style={{
               display: "flex",
               alignItems: "center",
@@ -116,6 +119,7 @@ export default function DashboardPage() {
               fontSize: 12,
               color: "var(--text-muted)",
               letterSpacing: "0.02em",
+              flexWrap: "wrap",
             }}
           >
             <span>{USER.role}</span>
@@ -131,7 +135,7 @@ export default function DashboardPage() {
             </span>
           </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
+        <div className="dashboard-right-stats" style={{ display: "flex", alignItems: "center", gap: 0 }}>
           <div style={{ textAlign: "right", paddingRight: 20, borderRight: "1px solid var(--border)" }}>
             <div className="label" style={{ marginBottom: 6 }}>
               Confidence
@@ -193,6 +197,7 @@ export default function DashboardPage() {
 
       {/* Hero — Up next */}
       <section
+        className="dashboard-hero"
         style={{
           borderTop: "1px solid var(--border)",
           borderBottom: "1px solid var(--border)",
@@ -222,6 +227,7 @@ export default function DashboardPage() {
             </span>
           </div>
           <h2
+            className="dashboard-hero-h2"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: 36,
@@ -244,7 +250,7 @@ export default function DashboardPage() {
           >
             {DAILY_CASE.summary}
           </p>
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div className="dashboard-hero-actions" style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <button
               onClick={() => router.push("/simulation")}
               style={{
@@ -288,6 +294,7 @@ export default function DashboardPage() {
 
         {/* Metadata column */}
         <div
+          className="dashboard-hero-meta"
           style={{
             display: "grid",
             gridTemplateColumns: "auto",
@@ -321,7 +328,7 @@ export default function DashboardPage() {
       </section>
 
       {/* Two column lower: activity + ranking */}
-      <section style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 64 }}>
+      <section className="dashboard-lower" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 64 }}>
         {/* Activity */}
         <div>
           {/* Recent cases */}
@@ -359,6 +366,7 @@ export default function DashboardPage() {
             <div>
               {/* Table header */}
               <div
+                className="dashboard-recent-header"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "24px 1fr 80px 80px 60px",
@@ -375,12 +383,13 @@ export default function DashboardPage() {
                 <span></span>
                 <span>Case</span>
                 <span>Time</span>
-                <span>When</span>
+                <span className="dashboard-when-hide">When</span>
                 <span style={{ textAlign: "right" }}>XP</span>
               </div>
               {RECENT_CASES.map((c) => (
                 <div
                   key={c.id}
+                  className="dashboard-recent-row"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "24px 1fr 80px 80px 60px",
@@ -424,6 +433,7 @@ export default function DashboardPage() {
                     {c.minutes}m
                   </span>
                   <span
+                    className="dashboard-when-hide"
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: 12,

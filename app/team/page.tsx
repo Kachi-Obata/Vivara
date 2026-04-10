@@ -136,6 +136,7 @@ export default function TeamPage() {
 
   return (
     <div
+      className="page-shell"
       style={{
         maxWidth: "var(--max-w)",
         margin: "0 auto",
@@ -145,6 +146,7 @@ export default function TeamPage() {
     >
       {/* Header */}
       <div
+        className="team-header"
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -165,6 +167,7 @@ export default function TeamPage() {
             </span>
           </div>
           <h1
+            className="team-h1"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: 32,
@@ -183,6 +186,7 @@ export default function TeamPage() {
         </div>
 
         <div
+          className="team-meta-bar"
           style={{
             display: "flex",
             alignItems: "center",
@@ -224,7 +228,7 @@ export default function TeamPage() {
       </div>
 
       {/* Layout */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 48 }}>
+      <div className="team-layout" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 48 }}>
         {/* Roles */}
         <div>
           <div
@@ -273,6 +277,7 @@ export default function TeamPage() {
             {roles.map((r, i) => (
               <div
                 key={r.id}
+                className="team-role-row"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr auto",
@@ -369,7 +374,7 @@ export default function TeamPage() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                <div className="team-role-actions" style={{ display: "flex", alignItems: "center", gap: 14 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                     <div
                       style={{
@@ -476,6 +481,7 @@ export default function TeamPage() {
 
         {/* Chat */}
         <aside
+          className="team-chat"
           style={{
             border: "1px solid var(--border)",
             borderRadius: "var(--radius-lg)",

@@ -19,6 +19,7 @@ export default function WelcomePage() {
 
   return (
     <div
+      className="welcome-grid"
       style={{
         position: "fixed",
         inset: 0,
@@ -48,6 +49,7 @@ export default function WelcomePage() {
 
       {/* LEFT: text column */}
       <div
+        className="welcome-text-col"
         style={{
           position: "relative",
           padding: "48px 64px",
@@ -55,10 +57,12 @@ export default function WelcomePage() {
           flexDirection: "column",
           justifyContent: "space-between",
           zIndex: 3,
+          minWidth: 0,
         }}
       >
         {/* Top row: logo + metadata */}
         <div
+          className="welcome-top-row"
           style={{
             display: "flex",
             alignItems: "center",
@@ -106,63 +110,61 @@ export default function WelcomePage() {
 
         {/* Middle: welcome title */}
         <div
+          className="welcome-middle"
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 36,
+            gap: 32,
+            minWidth: 0,
           }}
         >
           <div
             style={{
               opacity: 0,
-              animation: "fadeUp 800ms ease 200ms forwards",
+              animation: "fadeUp 900ms ease 150ms forwards",
+              minWidth: 0,
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 14,
-                fontFamily: "var(--font-mono)",
-                fontSize: 10,
-                fontWeight: 500,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "#6a6458",
-                marginBottom: 28,
-              }}
-            >
-              <span
-                style={{
-                  width: 24,
-                  height: 1,
-                  background: "#6a6458",
-                }}
-              />
-              Welcome
-            </div>
             <h1
+              className="welcome-title"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(72px, 9vw, 136px)",
+                fontSize: "clamp(88px, 10.5vw, 168px)",
                 fontWeight: 500,
-                letterSpacing: "-0.045em",
-                lineHeight: 0.9,
+                letterSpacing: "-0.05em",
+                lineHeight: 0.88,
                 margin: 0,
                 color: "#141618",
               }}
             >
-              To Vivara.
+              Welcome
             </h1>
+            <div
+              className="welcome-subtitle"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(46px, 5.6vw, 88px)",
+                fontWeight: 400,
+                letterSpacing: "-0.035em",
+                lineHeight: 0.95,
+                marginTop: 6,
+                color: "#3a372f",
+                opacity: 0,
+                animation: "fadeUp 900ms ease 400ms forwards",
+              }}
+            >
+              to Vivara.
+            </div>
           </div>
           <div
+            className="welcome-tagline-wrap"
             style={{
               display: "flex",
               flexDirection: "column",
               gap: 18,
-              maxWidth: 440,
+              maxWidth: 460,
               opacity: 0,
-              animation: "fadeUp 800ms ease 450ms forwards",
+              animation: "fadeUp 900ms ease 650ms forwards",
             }}
           >
             <div
@@ -173,6 +175,7 @@ export default function WelcomePage() {
               }}
             />
             <p
+              className="welcome-tagline"
               style={{
                 fontFamily: "var(--font)",
                 fontSize: 15,
@@ -194,7 +197,7 @@ export default function WelcomePage() {
             flexDirection: "column",
             gap: 14,
             opacity: 0,
-            animation: "fadeIn 700ms ease 800ms forwards",
+            animation: "fadeIn 700ms ease 950ms forwards",
           }}
         >
           <div
@@ -236,10 +239,12 @@ export default function WelcomePage() {
 
       {/* RIGHT: image panel */}
       <div
+        className="welcome-image-col"
         style={{
           position: "relative",
           overflow: "hidden",
           zIndex: 1,
+          minWidth: 0,
         }}
       >
         <img
@@ -261,6 +266,7 @@ export default function WelcomePage() {
         {/* Warm blend gradient on the left edge — bleeds the image into the cream column */}
         <div
           aria-hidden
+          className="welcome-image-blend"
           style={{
             position: "absolute",
             inset: 0,
@@ -286,6 +292,7 @@ export default function WelcomePage() {
 
         {/* Editorial caption — floats over the image bottom-right */}
         <div
+          className="welcome-caption"
           style={{
             position: "absolute",
             right: 32,

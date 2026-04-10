@@ -239,11 +239,12 @@ function PatientMonitor({ vitals, status }: any) {
       }}
     >
       <div
+        className="sim-monitor-header"
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 4,
+          marginBottom: 10,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -279,6 +280,7 @@ function PatientMonitor({ vitals, status }: any) {
         </span>
       </div>
       <div
+        className="sim-monitor-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr",
@@ -349,7 +351,7 @@ function LabPanel({ results }: any) {
       <div className="label" style={{ marginBottom: 14 }}>
         Lab results
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px 32px" }}>
+      <div className="sim-lab-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px 32px" }}>
         {Object.entries(results).map(([k, v]: any) => (
           <div
             key={k}
@@ -387,6 +389,7 @@ function IntroScreen({ onStart }: { onStart: () => void }) {
         Case SEP-01 · Emergency Medicine
       </div>
       <h1
+        className="sim-intro-h1"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: 40,
@@ -445,6 +448,7 @@ function IntroScreen({ onStart }: { onStart: () => void }) {
         ].map(([k, v]) => (
           <div
             key={k}
+            className="sim-intro-row"
             style={{
               display: "grid",
               gridTemplateColumns: "160px 1fr",
@@ -524,6 +528,7 @@ function ResultsScreen({ score, totalXP, decisions, onRestart }: any) {
         Case complete
       </div>
       <h1
+        className="sim-results-h1"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: 36,
@@ -542,6 +547,7 @@ function ResultsScreen({ score, totalXP, decisions, onRestart }: any) {
 
       {/* Metrics row */}
       <div
+        className="sim-results-metrics"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
@@ -650,6 +656,7 @@ function ResultsScreen({ score, totalXP, decisions, onRestart }: any) {
               </span>
             </div>
             <p
+              className="sim-phase-feedback"
               style={{
                 fontSize: 13,
                 color: "var(--text-secondary)",
@@ -765,6 +772,7 @@ export default function SimulationPage() {
 
   return (
     <div
+      className="page-shell"
       style={{
         maxWidth: 920,
         margin: "0 auto",
@@ -776,6 +784,7 @@ export default function SimulationPage() {
       {screen === "sim" && (
         <>
           <div
+            className="sim-header-row"
             style={{
               display: "flex",
               alignItems: "center",
@@ -823,6 +832,7 @@ export default function SimulationPage() {
             {/* Phase title */}
             <div style={{ marginBottom: 28 }}>
               <h2
+                className="sim-phase-h2"
                 style={{
                   fontFamily: "var(--font-display)",
                   fontSize: 28,
@@ -895,6 +905,7 @@ export default function SimulationPage() {
                 return (
                   <button
                     key={opt.id}
+                    className="sim-option-row"
                     onClick={() => !showFeedback && handleSelect(opt, timer)}
                     disabled={showFeedback}
                     style={{
@@ -932,6 +943,7 @@ export default function SimulationPage() {
                     </span>
                     <span style={{ fontSize: 14, lineHeight: 1.6 }}>{opt.text}</span>
                     <span
+                      className="sim-option-check"
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: 14,

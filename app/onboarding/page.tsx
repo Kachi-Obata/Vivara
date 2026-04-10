@@ -152,6 +152,7 @@ export default function OnboardingPage() {
 
   return (
     <div
+      className="page-shell"
       style={{
         maxWidth: 680,
         margin: "0 auto",
@@ -195,6 +196,7 @@ export default function OnboardingPage() {
       {step === 0 && (
         <div style={{ animation: "fadeUp 400ms ease" }}>
           <h1
+            className="onb-h1"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: 32,
@@ -475,6 +477,7 @@ export default function OnboardingPage() {
             Assessment
           </div>
           <h1
+            className="onb-h1"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: 32,
@@ -500,6 +503,7 @@ export default function OnboardingPage() {
 
           {/* Confidence — aligned metric, no circles, no glow */}
           <div
+            className="onb-confidence-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -509,7 +513,7 @@ export default function OnboardingPage() {
               marginBottom: 48,
             }}
           >
-            <div style={{ padding: "20px 24px 20px 0", borderRight: "1px solid var(--border)" }}>
+            <div className="onb-confidence-left" style={{ padding: "20px 24px 20px 0", borderRight: "1px solid var(--border)" }}>
               <div className="label" style={{ marginBottom: 10 }}>
                 Confidence index
               </div>
@@ -538,7 +542,7 @@ export default function OnboardingPage() {
               </div>
               <Bar value={assessment.confidence} delay={200} />
             </div>
-            <div style={{ padding: "20px 0 20px 24px" }}>
+            <div className="onb-confidence-right" style={{ padding: "20px 0 20px 24px" }}>
               <div className="label" style={{ marginBottom: 10 }}>
                 Recommended path
               </div>
@@ -559,6 +563,7 @@ export default function OnboardingPage() {
 
           {/* Strengths & gaps — two columns with rule */}
           <div
+            className="onb-strengths-gaps"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -644,6 +649,7 @@ export default function OnboardingPage() {
             ].map((s, i) => (
               <div
                 key={s.label}
+                className="onb-competency-row"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "200px 1fr 40px",
@@ -653,9 +659,12 @@ export default function OnboardingPage() {
                   borderBottom: "1px solid var(--border)",
                 }}
               >
-                <span style={{ fontSize: 13, color: "var(--text)" }}>{s.label}</span>
-                <Bar value={s.val} delay={300 + i * 80} />
+                <span className="onb-competency-label" style={{ fontSize: 13, color: "var(--text)" }}>{s.label}</span>
+                <div className="onb-competency-bar">
+                  <Bar value={s.val} delay={300 + i * 80} />
+                </div>
                 <span
+                  className="onb-competency-pct"
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 12,
